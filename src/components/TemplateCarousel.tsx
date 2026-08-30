@@ -102,35 +102,45 @@ export function TemplateCarousel() {
           </p>
         </motion.div>
 
-        <div
-          ref={scrollerRef}
-          className="liquid-x mt-12 cursor-grab overflow-x-auto overflow-y-hidden active:cursor-grabbing"
-        >
-          <div className="flex w-max gap-8 px-5 md:px-10">
-            {templates.map((tpl) => (
-              <a
-                key={tpl.slug}
-                href={tpl.url}
-                className="group w-[min(72vw,300px)] shrink-0"
-                draggable={false}
-              >
-                <HolographicCard
-                  title={tpl.title}
-                  foil={tpl.foil}
-                  previewSrc={tpl.previewSrc}
-                  interactive
-                />
-                <div className="mt-4 flex items-baseline justify-between gap-4">
-                  <p className="font-display text-lg tracking-tight">
-                    {tpl.title}
-                  </p>
-                  <span className="text-xs tracking-wide text-ink-soft">
-                    View template
-                  </span>
-                </div>
-              </a>
-            ))}
+        <div className="relative mt-12">
+          <div
+            ref={scrollerRef}
+            className="liquid-x cursor-grab overflow-x-auto overflow-y-hidden active:cursor-grabbing"
+          >
+            <div className="flex w-max gap-16 px-8 md:gap-24 md:px-16">
+              {templates.map((tpl) => (
+                <a
+                  key={tpl.slug}
+                  href={tpl.url}
+                  className="group w-[min(68vw,280px)] shrink-0"
+                  draggable={false}
+                >
+                  <HolographicCard
+                    title={tpl.title}
+                    foil={tpl.foil}
+                    previewSrc={tpl.previewSrc}
+                    interactive
+                  />
+                  <div className="mt-4 flex items-baseline justify-between gap-4">
+                    <p className="font-display text-lg tracking-tight">
+                      {tpl.title}
+                    </p>
+                    <span className="text-xs tracking-wide text-ink-soft">
+                      View template
+                    </span>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-canvas-dim via-canvas-dim/80 to-transparent md:w-36"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-canvas-dim via-canvas-dim/80 to-transparent md:w-36"
+            aria-hidden
+          />
         </div>
 
         <div className="mt-10 px-5 md:px-10">

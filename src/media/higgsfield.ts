@@ -26,6 +26,19 @@ export type VideoSlot = {
 
 export const mediaSlots = {
   /**
+   * OPENING — centered loader on a white void
+   * Small D-mark animation. Play once, then reveal the site.
+   */
+  opening: {
+    ready: true,
+    desktopSrc: withBase("/media/opening.mp4"),
+    posterSrc: withBase("/media/opening-poster.jpg"),
+    aspect: "16 / 9",
+    duration: "5s",
+    notes: "Centered, muted, play-once. Mix-blend so the white frame disappears.",
+  },
+
+  /**
    * HERO — full-bleed looping film
    * object-cover fills the viewport. Poster: /media/hero.jpg
    */

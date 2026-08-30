@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { Route, Routes, useLocation } from "react-router-dom"
+import { LandingReveal, OpeningProvider } from "./components/OpeningScreen"
 import { PageShell } from "./components/PageShell"
 import { DesignsPage } from "./pages/DesignsPage"
 import { DirectoryPage } from "./pages/DirectoryPage"
@@ -28,19 +29,21 @@ function HashScroll() {
 
 export default function App() {
   return (
-    <>
+    <OpeningProvider>
       <HashScroll />
-      <Routes>
-        <Route element={<PageShell />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/designs" element={<DesignsPage />} />
-          <Route path="/directory" element={<DirectoryPage />} />
-          <Route path="/help" element={<HelpPage />} />
-          <Route path="/my/login" element={<LoginPage />} />
-          <Route path="/terms" element={<TermsPage />} />
-          <Route path="/privacy" element={<PrivacyPage />} />
-        </Route>
-      </Routes>
-    </>
+      <LandingReveal>
+        <Routes>
+          <Route element={<PageShell />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/designs" element={<DesignsPage />} />
+            <Route path="/directory" element={<DirectoryPage />} />
+            <Route path="/help" element={<HelpPage />} />
+            <Route path="/my/login" element={<LoginPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+          </Route>
+        </Routes>
+      </LandingReveal>
+    </OpeningProvider>
   )
 }
