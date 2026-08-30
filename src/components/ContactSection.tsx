@@ -93,7 +93,7 @@ export function ContactSection({ heading = "Let's talk" }: ContactSectionProps) 
             </label>
             <button
               type="submit"
-              className="shine-hover mt-4 inline-flex min-h-12 w-fit items-center rounded-full bg-accent px-8 text-sm font-medium text-ink"
+              className="mt-4 inline-flex min-h-12 w-fit items-center rounded-full bg-ink px-8 text-sm font-medium text-white transition-opacity hover:opacity-85"
             >
               Send message
             </button>

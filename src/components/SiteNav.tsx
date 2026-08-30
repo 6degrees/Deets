@@ -1,24 +1,57 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Link, NavLink, useLocation } from "react-router-dom"
 import { navLinks, STORE_URL } from "../data/site"
 import { BrandLogo } from "./BrandLogo"
 
 export function SiteNav() {
-  const [compact, setCompact] = useState(false)
-  const [open, setOpen] = useState(false)
   const location = useLocation()
-  const overHero = location.pathname === "/" && !compact && !open
+  const [open, setOpen] = useState(false)
+  const [pastHero, setPastHero] = useState(location.pathname !== "/")
+  const [shown, setShown] = useState(true)
+  const lastY = useRef(0)
 
   useEffect(() => {
     setOpen(false)
+    setShown(true)
   }, [location.pathname, location.hash])
 
   useEffect(() => {
-    const onScroll = () => setCompact(window.scrollY > 24)
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+    if (location.pathname !== "/") {
+      setPastHero(true)
+      lastY.current = window.scrollY
+      return
+    }
+
+    const update = () => {
+      const y = window.scrollY
+      const delta = y - lastY.current
+      lastY.current = y
+      const past = y > window.innerHeight - 48
+      setPastHero(past)
+
+      if (open) {
+        setShown(true)
+        return
+      }
+      if (!past || y < 16) {
+        setShown(true)
+        return
+      }
+      if (delta > 4) setShown(false)
+      else if (delta < -4) setShown(true)
+    }
+
+    lastY.current = window.scrollY
+    update()
+    window.addEventListener("scroll", update, { passive: true })
+    window.addEventListener("resize", update)
+    return () => {
+      window.removeEventListener("scroll", update)
+      window.removeEventListener("resize", update)
+    }
+  }, [location.pathname, open])
+
+  const overHero = location.pathname === "/" && !pastHero && !open
 
   const linkClass = overHero
     ? "text-[13px] tracking-wide text-white/80 transition-colors hover:text-white"
@@ -30,11 +63,11 @@ export function SiteNav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-40 transition-[padding,background-color,backdrop-filter] duration-500 ${
-        compact || open
+      className={`fixed inset-x-0 top-0 z-40 transition-[transform,padding,background-color,backdrop-filter] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        pastHero || open
           ? "bg-white/80 py-3 backdrop-blur-md"
           : "bg-transparent py-6"
-      }`}
+      } ${shown ? "translate-y-0" : "-translate-y-full"}`}
     >
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 md:px-10">
         <Link to="/" className="flex items-center">

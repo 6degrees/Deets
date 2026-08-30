@@ -126,4 +126,51 @@ export const directoryPeople = [
   },
 ]
 
+export const pricingPlans = [
+  {
+    id: "solo",
+    name: "Solo",
+    price: "149",
+    unit: "SAR",
+    note: "One card",
+    features: ["NFC and QR", "Your profile, your design", "No app required"],
+    cta: "Order Now",
+    href: STORE_URL,
+    wash: "linear-gradient(115deg, #161b26 0%, #3d5368 52%, #7d93a8 100%)",
+  },
+  {
+    id: "pair",
+    name: "Pair",
+    price: "269",
+    unit: "SAR",
+    note: "Two cards",
+    features: ["Share a look", "Two profiles", "One order"],
+    cta: "Order Now",
+    href: STORE_URL,
+    wash: "linear-gradient(115deg, #2a1810 0%, #8a4a28 48%, #d4b49a 100%)",
+  },
+  {
+    id: "team",
+    name: "Team",
+    price: "599",
+    unit: "SAR",
+    note: "Five cards",
+    features: ["Branded set", "Five profiles", "Ready for a small crew"],
+    cta: "Order Now",
+    href: STORE_URL,
+    wash: "linear-gradient(115deg, #121a14 0%, #3d5a42 52%, #8fa88c 100%)",
+  },
+  {
+    id: "company",
+    name: "Company",
+    price: "Custom",
+    unit: "",
+    note: "Portal and bulk",
+    features: ["Companies portal", "Issue and update cards", "Volume pricing"],
+    cta: "Open portal",
+    href: "/companies",
+    wash: "linear-gradient(115deg, #1a1a1a 0%, #4a4540 50%, #9a938c 100%)",
+  },
+] as const
+
 export { CONTACT_EMAIL, STORE_URL }

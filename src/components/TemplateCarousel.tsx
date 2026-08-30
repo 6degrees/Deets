@@ -102,7 +102,7 @@ export function TemplateCarousel() {
           </p>
         </motion.div>
 
-        <div className="relative mt-12">
+        <div className="carousel-edge-fade relative mt-12">
           <div
             ref={scrollerRef}
             className="liquid-x cursor-grab overflow-x-auto overflow-y-hidden active:cursor-grabbing"
@@ -133,14 +133,6 @@ export function TemplateCarousel() {
               ))}
             </div>
           </div>
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-canvas-dim via-canvas-dim/80 to-transparent md:w-36"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-canvas-dim via-canvas-dim/80 to-transparent md:w-36"
-            aria-hidden
-          />
         </div>
 
         <div className="mt-10 px-5 md:px-10">

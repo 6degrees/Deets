@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Route, Routes, useLocation } from "react-router-dom"
 import { LandingReveal, OpeningProvider } from "./components/OpeningScreen"
 import { PageShell } from "./components/PageShell"
+import { CompaniesPage } from "./pages/CompaniesPage"
 import { DesignsPage } from "./pages/DesignsPage"
 import { DirectoryPage } from "./pages/DirectoryPage"
 import { HelpPage } from "./pages/HelpPage"
@@ -35,6 +36,7 @@ export default function App() {
         <Routes>
           <Route element={<PageShell />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="/companies" element={<CompaniesPage />} />
             <Route path="/designs" element={<DesignsPage />} />
             <Route path="/directory" element={<DirectoryPage />} />
             <Route path="/help" element={<HelpPage />} />

@@ -22,6 +22,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link className="hover:text-magenta" to="/companies">
+                Companies
+              </Link>
+            </li>
+            <li>
               <Link className="hover:text-magenta" to="/designs">
                 Designs
               </Link>
@@ -29,6 +34,11 @@ export function Footer() {
             <li>
               <Link className="hover:text-magenta" to="/#functions">
                 Functions
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-magenta" to="/#pricing">
+                Pricing
               </Link>
             </li>
             <li>
