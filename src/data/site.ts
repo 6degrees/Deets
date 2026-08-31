@@ -30,6 +30,24 @@ export const trustItems = [
   },
 ] as const
 
+export const howItWorksSteps = [
+  {
+    id: "order",
+    title: "Order your card",
+    copy: "Pick a design, add your details, and we ship your Deets card ready to use.",
+  },
+  {
+    id: "share",
+    title: "Tap or scan",
+    copy: "Anyone can tap with their phone or scan the QR — no app download needed.",
+  },
+  {
+    id: "update",
+    title: "Update anytime",
+    copy: "Change your links, photo, or contact info from your account. The card stays current.",
+  },
+] as const
+
 export type Template = {
   slug: string
   title: string
@@ -125,6 +143,49 @@ export const directoryPeople = [
     href: "https://www.deets.pro/directory",
   },
 ]
+
+export const testimonials = [
+  {
+    id: "mohannad",
+    quote:
+      "I stopped reprinting cards every time my title changed. One tap and people have everything.",
+    name: "Mohannad Faihan Al Otaibi",
+    title: "Founder",
+    company: "6 Degrees Technologies",
+    location: "Riyadh, Saudi Arabia",
+    initials: "MO",
+  },
+  {
+    id: "nabil",
+    quote:
+      "Clients actually save my details now. No more lost cards at events — they tap and go.",
+    name: "Nabil Aljabery",
+    title: "Marketing consultant",
+    company: "Independent",
+    location: "Riyadh, Saudi Arabia",
+    initials: "NA",
+  },
+  {
+    id: "sara",
+    quote:
+      "Our team cards look sharp and stay on brand. Updating profiles takes minutes, not a reprint run.",
+    name: "Sara Al-Rashid",
+    title: "Marketing Director",
+    company: "Riyadh Creative Co.",
+    location: "Riyadh, Saudi Arabia",
+    initials: "SA",
+  },
+  {
+    id: "layla",
+    quote:
+      "Networking feels effortless now. People remember me because the card actually does something.",
+    name: "Layla Hassan",
+    title: "Partnerships Lead",
+    company: "Burooj Air",
+    location: "Jeddah, Saudi Arabia",
+    initials: "LH",
+  },
+] as const
 
 export const pricingPlans = [
   {
