@@ -70,19 +70,19 @@ export function TemplateCarousel() {
             whileInView="show"
             viewport={{ once: true, amount: 0.15 }}
             variants={stagger}
-            className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
+            className="grid grid-cols-1 justify-items-center gap-8 sm:grid-cols-2"
           >
             {visible.map((tpl) => (
-              <motion.li key={tpl.slug} variants={fadeUp}>
+              <motion.li key={tpl.slug} variants={fadeUp} className="w-full max-w-[260px]">
                 <a href={tpl.url} className="group block">
                   {tpl.previewSrc ? (
                     <img
                       src={tpl.previewSrc}
                       alt=""
-                      className="mx-auto w-full max-w-[220px] transition-transform duration-300 group-hover:-translate-y-1"
+                      className="mx-auto w-full transition-transform duration-300 group-hover:-translate-y-1"
                     />
                   ) : (
-                    <div className="mx-auto aspect-[428/876] w-full max-w-[220px] rounded-[1.25rem] bg-canvas-dim" />
+                    <div className="mx-auto aspect-[428/876] w-full rounded-[1.25rem] bg-canvas-dim" />
                   )}
                   <p className="mt-4 text-center font-display text-lg tracking-tight text-ink">
                     {tpl.title}
