@@ -1,141 +1,99 @@
+import { useMemo, useState } from "react"
 import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
-import { useEffect, useRef, type RefObject } from "react"
-import { templates } from "../data/site"
-import { fadeUp } from "../motion/variants"
-import { HolographicCard } from "./HolographicCard"
-
-function useLiquidScroll(ref: RefObject<HTMLDivElement | null>) {
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    if (reduce) return
-
-    let target = el.scrollLeft
-    let current = el.scrollLeft
-    let raf = 0
-    let dragging = false
-    let dragX = 0
-    let dragStart = 0
-
-    const maxScroll = () => el.scrollWidth - el.clientWidth
-
-    const tick = () => {
-      current += (target - current) * 0.085
-      if (Math.abs(target - current) < 0.4) current = target
-      el.scrollLeft = current
-      if (current !== target) raf = requestAnimationFrame(tick)
-      else raf = 0
-    }
-
-    const go = (next: number) => {
-      target = Math.max(0, Math.min(maxScroll(), next))
-      if (!raf) raf = requestAnimationFrame(tick)
-    }
-
-    const onWheel = (e: WheelEvent) => {
-      if (maxScroll() <= 0) return
-      const delta =
-        Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY
-      if (delta === 0) return
-      e.preventDefault()
-      go(target + delta * 0.42)
-    }
-
-    const onPointerDown = (e: PointerEvent) => {
-      if (e.pointerType === "touch") return
-      dragging = true
-      dragX = e.clientX
-      dragStart = target
-      el.setPointerCapture(e.pointerId)
-    }
-
-    const onPointerMove = (e: PointerEvent) => {
-      if (!dragging) return
-      go(dragStart - (e.clientX - dragX))
-    }
-
-    const onPointerUp = () => {
-      dragging = false
-    }
-
-    el.addEventListener("wheel", onWheel, { passive: false })
-    el.addEventListener("pointerdown", onPointerDown)
-    el.addEventListener("pointermove", onPointerMove)
-    el.addEventListener("pointerup", onPointerUp)
-    el.addEventListener("pointercancel", onPointerUp)
-
-    return () => {
-      cancelAnimationFrame(raf)
-      el.removeEventListener("wheel", onWheel)
-      el.removeEventListener("pointerdown", onPointerDown)
-      el.removeEventListener("pointermove", onPointerMove)
-      el.removeEventListener("pointerup", onPointerUp)
-      el.removeEventListener("pointercancel", onPointerUp)
-    }
-  }, [ref])
-}
+import { templateCategories, templates } from "../data/site"
+import { fadeUp, stagger } from "../motion/variants"
 
 export function TemplateCarousel() {
-  const scrollerRef = useRef<HTMLDivElement>(null)
-  useLiquidScroll(scrollerRef)
+  const [activeCategory, setActiveCategory] = useState<
+    (typeof templateCategories)[number]["id"]
+  >("all")
+
+  const visible = useMemo(() => {
+    if (activeCategory === "all") return templates
+    return templates.filter((tpl) => tpl.category === activeCategory)
+  }, [activeCategory])
 
   return (
-    <section className="relative z-10 bg-canvas-dim py-24 md:py-32">
+    <section className="relative z-10 bg-[#f3f3f3] px-5 py-24 md:px-10 md:py-32">
       <div className="mx-auto max-w-[1440px]">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
           variants={fadeUp}
-          className="px-5 md:px-10"
+          className="mx-auto max-w-3xl text-center"
         >
-          <p className="text-[13px] tracking-[0.18em] text-ink-soft uppercase">
-            Choose your design
-          </p>
-          <h2 className="mt-4 max-w-3xl font-display text-[clamp(2rem,5vw,4.2rem)] leading-[0.95] tracking-[-0.045em] lowercase">
-            Browse professionally crafted profile templates.
+          <h2 className="font-display text-[clamp(2rem,4.8vw,3.75rem)] leading-[1.05] tracking-[-0.04em] text-ink">
+            A Deets template to suit every brand and creator
           </h2>
-          <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-ink-soft">
-            Each design is fully customizable to match your brand.
+          <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-relaxed text-ink-soft">
+            Different layouts, colors, and styles. Pick a starting point, then
+            make it yours with your links, photo, and brand.
           </p>
         </motion.div>
 
-        <div className="carousel-edge-fade relative mt-12">
-          <div
-            ref={scrollerRef}
-            className="liquid-x cursor-grab overflow-x-auto overflow-y-hidden active:cursor-grabbing"
+        <div className="mt-14 grid gap-10 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-12">
+          <motion.aside
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+            className="lg:sticky lg:top-28 lg:self-start"
           >
-            <div className="flex w-max gap-16 px-8 md:gap-24 md:px-16">
-              {templates.map((tpl) => (
-                <a
-                  key={tpl.slug}
-                  href={tpl.url}
-                  className="group w-[min(68vw,280px)] shrink-0"
-                  draggable={false}
-                >
-                  <HolographicCard
-                    title={tpl.title}
-                    foil={tpl.foil}
-                    previewSrc={tpl.previewSrc}
-                    interactive
-                  />
-                  <div className="mt-4 flex items-baseline justify-between gap-4">
-                    <p className="font-display text-lg tracking-tight">
-                      {tpl.title}
-                    </p>
-                    <span className="text-xs tracking-wide text-ink-soft">
-                      View template
-                    </span>
-                  </div>
+            <p className="text-[11px] tracking-[0.16em] text-ink-soft uppercase">
+              Browse by category
+            </p>
+            <nav className="mt-4 flex gap-2 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible">
+              {templateCategories.map((cat) => {
+                const active = activeCategory === cat.id
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => setActiveCategory(cat.id)}
+                    className={`shrink-0 rounded-full px-4 py-2.5 text-left text-sm transition-colors ${
+                      active
+                        ? "bg-ink text-white"
+                        : "border border-line bg-white text-ink hover:bg-white/80"
+                    }`}
+                  >
+                    {cat.label}
+                  </button>
+                )
+              })}
+            </nav>
+          </motion.aside>
+
+          <motion.ul
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={stagger}
+            className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3"
+          >
+            {visible.map((tpl) => (
+              <motion.li key={tpl.slug} variants={fadeUp}>
+                <a href={tpl.url} className="group block">
+                  {tpl.previewSrc ? (
+                    <img
+                      src={tpl.previewSrc}
+                      alt=""
+                      className="mx-auto w-full max-w-[220px] transition-transform duration-300 group-hover:-translate-y-1"
+                    />
+                  ) : (
+                    <div className="mx-auto aspect-[428/876] w-full max-w-[220px] rounded-[1.25rem] bg-canvas-dim" />
+                  )}
+                  <p className="mt-4 text-center font-display text-lg tracking-tight text-ink">
+                    {tpl.title}
+                  </p>
                 </a>
-              ))}
-            </div>
-          </div>
+              </motion.li>
+            ))}
+          </motion.ul>
         </div>
 
-        <div className="mt-10 px-5 md:px-10">
+        <div className="mt-12 text-center">
           <Link
             to="/designs"
             className="text-sm tracking-wide text-ink underline decoration-line underline-offset-4"

@@ -54,7 +54,17 @@ export type Template = {
   url: string
   foil: string
   previewSrc?: string
+  category: (typeof templateCategories)[number]["id"]
 }
+
+export const templateCategories = [
+  { id: "all", label: "All templates" },
+  { id: "corporate", label: "Corporate" },
+  { id: "creative", label: "Creative" },
+  { id: "aviation", label: "Aviation" },
+  { id: "tech", label: "Tech" },
+  { id: "personal", label: "Personal" },
+] as const
 
 export const templates: Template[] = [
   {
@@ -63,6 +73,7 @@ export const templates: Template[] = [
     url: "https://www.deets.pro/demo/design-samples/six-degrees-technologies",
     foil: "linear-gradient(135deg, #00d4ff 0%, #1a6dff 55%, #0a0a0a 100%)",
     previewSrc: withBase("/media/templates/six-degrees-technologies.png"),
+    category: "tech",
   },
   {
     slug: "burooj",
@@ -70,6 +81,7 @@ export const templates: Template[] = [
     url: "https://www.deets.pro/demo/design-samples/burooj",
     foil: "linear-gradient(135deg, #c9a227 0%, #8a5a12 50%, #1a1208 100%)",
     previewSrc: withBase("/media/templates/six-degrees-technologies.png"),
+    category: "corporate",
   },
   {
     slug: "burooj-air",
@@ -77,6 +89,7 @@ export const templates: Template[] = [
     url: "https://www.deets.pro/demo/design-samples/burooj-air",
     foil: "linear-gradient(135deg, #7cf0ff 0%, #3aa0ff 48%, #e8f6ff 100%)",
     previewSrc: withBase("/media/templates/six-degrees-technologies.png"),
+    category: "aviation",
   },
   {
     slug: "corporate-blue",
@@ -84,6 +97,7 @@ export const templates: Template[] = [
     url: "https://www.deets.pro/demo/design-samples/corporate-blue",
     foil: "linear-gradient(135deg, #0b3a6e 0%, #1f7ae0 60%, #d6ecff 100%)",
     previewSrc: withBase("/media/templates/six-degrees-technologies.png"),
+    category: "corporate",
   },
   {
     slug: "deets",
@@ -91,6 +105,7 @@ export const templates: Template[] = [
     url: "https://www.deets.pro/demo/design-samples/deets",
     foil: "linear-gradient(135deg, #00d4ff 0%, #ff2d92 55%, #ff6b1a 100%)",
     previewSrc: withBase("/media/templates/six-degrees-technologies.png"),
+    category: "creative",
   },
   {
     slug: "efficiency-center",
@@ -98,6 +113,7 @@ export const templates: Template[] = [
     url: "https://www.deets.pro/demo/design-samples/efficiency-center",
     foil: "linear-gradient(135deg, #b6ff3a 0%, #1fa37a 55%, #06332a 100%)",
     previewSrc: withBase("/media/templates/six-degrees-technologies.png"),
+    category: "corporate",
   },
 ]
 
@@ -107,24 +123,28 @@ export const extraTemplates: Template[] = [
     title: "Linktree base",
     url: "https://www.deets.pro/demo/design-samples/linktree-base",
     foil: "linear-gradient(135deg, #39e07b 0%, #111 100%)",
+    category: "personal",
   },
   {
     slug: "midnight",
     title: "Midnight",
     url: "https://www.deets.pro/demo/design-samples/midnight",
     foil: "linear-gradient(135deg, #1b1030 0%, #4b2a8a 60%, #00d4ff 100%)",
+    category: "creative",
   },
   {
     slug: "naqsh",
     title: "Naqsh",
     url: "https://www.deets.pro/demo/design-samples/naqsh",
     foil: "linear-gradient(135deg, #d4af77 0%, #5c3d1e 100%)",
+    category: "creative",
   },
   {
     slug: "neon-lime",
     title: "Neon Lime",
     url: "https://www.deets.pro/demo/design-samples/neon-lime",
     foil: "linear-gradient(135deg, #d8ff3f 0%, #1a1a1a 100%)",
+    category: "personal",
   },
 ]
 
