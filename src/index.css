@@ -1,9 +1,56 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Urbane";
+  src: url("./assets/fonts/Urbane-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Urbane";
+  src: url("./assets/fonts/Urbane-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Urbane";
+  src: url("./assets/fonts/Urbane-Medium.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Urbane";
+  src: url("./assets/fonts/Urbane-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Urbane";
+  src: url("./assets/fonts/Urbane-DemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Urbane";
+  src: url("./assets/fonts/Urbane-DemiBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-display: "Syne", sans-serif;
-  --font-serif: "Instrument Serif", serif;
-  --font-sans: "IBM Plex Sans", sans-serif;
+  --font-display: "Urbane", sans-serif;
+  --font-sans: "Urbane", sans-serif;
 
   --color-ink: #0a0a0a;
   --color-ink-soft: #3a3a3a;

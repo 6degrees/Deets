@@ -22,7 +22,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_0%,rgb(0_0_0_/_0.45)_70%,rgb(0_0_0_/_0.65)_100%)]" />
 
       <div className="pointer-events-none relative z-20 flex h-full flex-col items-center justify-center px-6 text-center">
-        <h1 className="font-display text-[1.85rem] font-extrabold leading-[1.08] tracking-[-0.04em] text-white drop-shadow-[0_2px_24px_rgb(0_0_0_/_0.85)] sm:text-[2.35rem] md:text-[3rem] md:leading-[1.05]">
+        <h1 className="font-display text-[1.85rem] font-semibold leading-[1.08] tracking-[-0.04em] text-white drop-shadow-[0_2px_24px_rgb(0_0_0_/_0.85)] sm:text-[2.35rem] md:text-[3rem] md:leading-[1.05]">
           A Card That
           <br />
           Speaks For You

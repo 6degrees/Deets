@@ -24,7 +24,7 @@ export function FunctionsFilm() {
       </div>
 
       <div className="flex flex-col items-center px-6 pb-20 pt-8 text-center md:pb-28 md:pt-10">
-        <p className="max-w-2xl font-display text-[1.45rem] font-extrabold leading-[1.1] tracking-[-0.04em] text-ink sm:text-[1.9rem] md:text-[2.35rem]">
+        <p className="max-w-2xl font-display text-[1.45rem] font-semibold leading-[1.1] tracking-[-0.04em] text-ink sm:text-[1.9rem] md:text-[2.35rem]">
           Made For Modernity,
           <br />
           Convenience, And Elegance.

@@ -172,7 +172,7 @@ export function TestimonialsSection() {
               </div>
 
               <p
-                className="mt-8 font-serif text-[3.25rem] leading-none text-cyan"
+                className="mt-8 font-display text-[3.25rem] font-thin leading-none text-cyan"
                 aria-hidden
               >
                 “
