@@ -1,4 +1,5 @@
 import { useRef, useState, type PointerEvent } from "react"
+import { TemplateScreenPreview } from "./TemplateScreenPreview"
 
 type HolographicCardProps = {
   title: string
@@ -36,7 +37,7 @@ export function HolographicCard({
       onPointerLeave={() => setTilt({ x: 0, y: 0 })}
     >
       <div
-        className={`relative w-full ${previewSrc ? "aspect-[428/876]" : "aspect-[1.586/1]"} ${floating ? "card-float" : ""}`}
+        className={`relative w-full ${previewSrc ? "" : "aspect-[1.586/1]"} ${floating ? "card-float" : ""}`}
         style={{
           transform: interactive
             ? `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`
@@ -46,13 +47,7 @@ export function HolographicCard({
         }}
       >
         {previewSrc ? (
-          <div className="absolute inset-0 overflow-hidden rounded-[18px]">
-            <img
-              src={previewSrc}
-              alt=""
-              className="size-full object-contain object-left"
-            />
-          </div>
+          <TemplateScreenPreview src={previewSrc} className="w-full" />
         ) : (
           <div
             className="absolute inset-0 overflow-hidden rounded-[18px] shadow-[0_28px_70px_rgb(255_45_146_/_0.18),0_10px_30px_rgb(0_212_255_/_0.12)]"

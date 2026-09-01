@@ -99,7 +99,7 @@ export const templates: Template[] = [
     title: "6 Degrees Technologies",
     url: "https://www.deets.pro/demo/design-samples/six-degrees-technologies",
     foil: "linear-gradient(135deg, #00d4ff 0%, #1a6dff 55%, #0a0a0a 100%)",
-    previewSrc: withBase("/media/templates/six-degrees-technologies.png"),
+    previewSrc: withBase("/media/templates/six-degrees-technologies.jpg"),
     category: "tech",
   },
   {
@@ -107,7 +107,7 @@ export const templates: Template[] = [
     title: "Burooj",
     url: "https://www.deets.pro/demo/design-samples/burooj",
     foil: "linear-gradient(135deg, #c9a227 0%, #8a5a12 50%, #1a1208 100%)",
-    previewSrc: withBase("/media/templates/six-degrees-technologies.png"),
+    previewSrc: withBase("/media/templates/burooj.jpg"),
     category: "corporate",
   },
   {
@@ -115,7 +115,7 @@ export const templates: Template[] = [
     title: "Burooj Air",
     url: "https://www.deets.pro/demo/design-samples/burooj-air",
     foil: "linear-gradient(135deg, #7cf0ff 0%, #3aa0ff 48%, #e8f6ff 100%)",
-    previewSrc: withBase("/media/templates/six-degrees-technologies.png"),
+    previewSrc: withBase("/media/templates/burooj-air.jpg"),
     category: "aviation",
   },
   {
@@ -123,7 +123,7 @@ export const templates: Template[] = [
     title: "Corporate Blue",
     url: "https://www.deets.pro/demo/design-samples/corporate-blue",
     foil: "linear-gradient(135deg, #0b3a6e 0%, #1f7ae0 60%, #d6ecff 100%)",
-    previewSrc: withBase("/media/templates/six-degrees-technologies.png"),
+    previewSrc: withBase("/media/templates/corporate-blue.jpg"),
     category: "corporate",
   },
   {
@@ -131,7 +131,7 @@ export const templates: Template[] = [
     title: "deets",
     url: "https://www.deets.pro/demo/design-samples/deets",
     foil: "linear-gradient(135deg, #00d4ff 0%, #ff2d92 55%, #ff6b1a 100%)",
-    previewSrc: withBase("/media/templates/six-degrees-technologies.png"),
+    previewSrc: withBase("/media/templates/six-degrees-technologies.jpg"),
     category: "creative",
   },
   {
@@ -139,7 +139,7 @@ export const templates: Template[] = [
     title: "Efficiency Center",
     url: "https://www.deets.pro/demo/design-samples/efficiency-center",
     foil: "linear-gradient(135deg, #b6ff3a 0%, #1fa37a 55%, #06332a 100%)",
-    previewSrc: withBase("/media/templates/six-degrees-technologies.png"),
+    previewSrc: withBase("/media/templates/six-degrees-technologies.jpg"),
     category: "corporate",
   },
 ]

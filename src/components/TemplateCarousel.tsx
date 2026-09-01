@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import { templateCategories, templates } from "../data/site"
 import { fadeUp, stagger } from "../motion/variants"
+import { TemplateScreenPreview } from "./TemplateScreenPreview"
 
 export function TemplateCarousel() {
   const [activeCategory, setActiveCategory] = useState<
@@ -76,13 +77,12 @@ export function TemplateCarousel() {
               <motion.li key={tpl.slug} variants={fadeUp} className="w-full max-w-[260px]">
                 <a href={tpl.url} className="group block">
                   {tpl.previewSrc ? (
-                    <img
+                    <TemplateScreenPreview
                       src={tpl.previewSrc}
-                      alt=""
                       className="mx-auto w-full transition-transform duration-300 group-hover:-translate-y-1"
                     />
                   ) : (
-                    <div className="mx-auto aspect-[428/876] w-full rounded-[1.25rem] bg-canvas-dim" />
+                    <div className="mx-auto w-full rounded-[1.25rem] bg-canvas-dim aspect-[459/892]" />
                   )}
                   <p className="mt-4 text-center font-display text-lg tracking-tight text-ink">
                     {tpl.title}
