@@ -67,6 +67,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link className="hover:text-magenta" to="/#faq">
+                FAQ
+              </Link>
+            </li>
+            <li>
               <Link className="hover:text-magenta" to="/#contact">
                 Contact
               </Link>

@@ -9,7 +9,7 @@ export function DesignsGallery({
   items = [...templates, ...extraTemplates],
 }: DesignsGalleryProps) {
   return (
-    <ul className="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-14 lg:grid-cols-3">
       {items.map((tpl) => (
         <li key={tpl.slug}>
           <a href={tpl.url} className="group block">

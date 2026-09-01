@@ -13,7 +13,7 @@ export function TemplateScreenPreview({
     <img
       src={src}
       alt={alt}
-      className={`block w-full rounded-[1.25rem] ${className}`}
+      className={`block h-auto max-w-full rounded-[1.25rem] ${className}`}
     />
   )
 }

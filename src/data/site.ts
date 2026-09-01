@@ -11,46 +11,46 @@ export const navLinks = [
 
 export const products = [
   {
-    id: "classic",
-    title: "Classic Card",
-    copy: "Our standard NFC card — durable, customizable, and ready to share your profile.",
-    imageSrc: withBase("/media/products/classic.jpg"),
+    id: "digital-profile",
+    title: "Digital Profile",
+    copy: "Your deets.pro page — share your links, photo, and contact info from one link.",
+    imageSrc: withBase("/media/products/digital-profile.jpg"),
   },
   {
-    id: "metal",
-    title: "Metal Card",
-    copy: "Premium metal finish with embossed branding for a lasting first impression.",
-    imageSrc: withBase("/media/products/metal.jpg"),
+    id: "wallet",
+    title: "Wallet",
+    copy: "Add your Deets card to Apple Wallet or Google Wallet for one-tap sharing.",
+    imageSrc: withBase("/media/products/wallet.jpg"),
   },
   {
-    id: "matte-black",
-    title: "Matte Black",
-    copy: "A sleek matte black card built for minimal, modern professionals.",
-    imageSrc: withBase("/media/products/matte-black.jpg"),
+    id: "qr",
+    title: "QR",
+    copy: "Every Deets product includes a QR code — scan to open your profile instantly.",
+    imageSrc: withBase("/media/products/qr.jpg"),
   },
   {
-    id: "holographic",
-    title: "Holographic",
-    copy: "Light-catching finishes that stand out at events and on camera.",
-    imageSrc: withBase("/media/products/holographic.jpg"),
+    id: "cards",
+    title: "Cards",
+    copy: "NFC business cards in premium finishes — tap to share, no app required.",
+    imageSrc: withBase("/media/products/cards.jpg"),
   },
   {
-    id: "sticker",
-    title: "NFC Sticker",
-    copy: "Stick it on your phone or laptop — tap to share without carrying a card.",
-    imageSrc: withBase("/media/products/sticker.jpg"),
+    id: "dome",
+    title: "Dome",
+    copy: "A standout display piece for desks, counters, and events.",
+    imageSrc: withBase("/media/products/dome.jpg"),
   },
   {
-    id: "tag",
-    title: "Smart Tag",
-    copy: "A compact NFC tag for lanyards, wallets, and everyday carry.",
-    imageSrc: withBase("/media/products/tag.jpg"),
+    id: "stickers",
+    title: "Stickers",
+    copy: "NFC stickers for your phone, laptop, or anywhere you want to share.",
+    imageSrc: withBase("/media/products/stickers.jpg"),
   },
   {
-    id: "username",
-    title: "Deets Username",
-    copy: "Your own deets.pro link — no physical card required.",
-    imageSrc: withBase("/media/products/username.jpg"),
+    id: "id-cards",
+    title: "ID Cards",
+    copy: "Smart ID cards for teams — branded, updatable, and ready to tap.",
+    imageSrc: withBase("/media/products/id-cards.jpg"),
   },
 ] as const
 
@@ -278,6 +278,45 @@ export const pricingPlans = [
     cta: "Open portal",
     href: "/companies",
     wash: "linear-gradient(115deg, #1a1a1a 0%, #4a4540 50%, #9a938c 100%)",
+  },
+] as const
+
+export const faqItems = [
+  {
+    id: "app",
+    question: "Does the person I share with need an app?",
+    answer:
+      "No. Anyone can tap your card with their phone or scan the QR code — your profile opens instantly in their browser. No download required.",
+  },
+  {
+    id: "update",
+    question: "Can I update my details after my card is printed?",
+    answer:
+      "Yes. Log in to your account anytime to change your links, photo, contact info, or design. Your physical card stays the same — the profile behind it updates instantly.",
+  },
+  {
+    id: "phones",
+    question: "Which phones work with NFC?",
+    answer:
+      "Most modern iPhones (iPhone 7 and later) and Android phones with NFC support can tap a Deets card. Every card also includes a QR code as a backup.",
+  },
+  {
+    id: "shipping",
+    question: "How long does shipping take?",
+    answer:
+      "Orders are typically processed within a few business days. Delivery times depend on your location in Saudi Arabia — you'll receive tracking once your card ships.",
+  },
+  {
+    id: "company",
+    question: "Can my company order cards for the whole team?",
+    answer:
+      "Yes. Use the Companies portal to issue branded cards, manage employee profiles, and update details across your organization from one place.",
+  },
+  {
+    id: "privacy",
+    question: "Who can see my information?",
+    answer:
+      "Only people you share your card with can view your profile. Your details are stored securely in your private account — not publicly listed.",
   },
 ] as const
 

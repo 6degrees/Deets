@@ -32,7 +32,7 @@ export function HowItWorks() {
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
         variants={stagger}
-        className="mx-auto mt-16 grid max-w-[1440px] grid-cols-1 gap-x-6 gap-y-14 md:grid-cols-3"
+        className="mx-auto mt-16 grid max-w-[1440px] grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 sm:gap-y-14 xl:grid-cols-3"
       >
         {howItWorksSteps.map((step, index) => (
           <motion.li key={step.id} variants={fadeUp} className="min-w-0">

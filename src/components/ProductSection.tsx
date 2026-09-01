@@ -5,9 +5,6 @@ import { useLiquidScroll } from "../hooks/useLiquidScroll"
 import { fadeUp } from "../motion/variants"
 import { CarouselArrows } from "./CarouselArrows"
 
-const productCardWidth =
-  "w-[min(88vw,calc((min(100vw-2.5rem,90rem)-3rem)/3))]"
-
 export function ProductSection() {
   const scrollerRef = useRef<HTMLDivElement>(null)
   useLiquidScroll(scrollerRef)
@@ -16,7 +13,7 @@ export function ProductSection() {
     const el = scrollerRef.current
     if (!el) return
     const card = el.querySelector<HTMLElement>("article")
-    const step = card ? card.offsetWidth + 24 : 400
+    const step = card ? card.offsetWidth + 24 : 320
     el.scrollBy({
       left: direction === "next" ? step : -step,
       behavior: "smooth",
@@ -26,7 +23,7 @@ export function ProductSection() {
   return (
     <section
       id="products"
-      className="relative scroll-mt-24 bg-canvas px-5 py-24 md:px-10 md:py-32"
+      className="relative scroll-mt-24 overflow-hidden bg-canvas px-5 py-20 sm:py-24 md:px-10 md:py-32"
     >
       <motion.div
         initial="hidden"
@@ -35,12 +32,12 @@ export function ProductSection() {
         variants={fadeUp}
         className="mx-auto max-w-[1440px]"
       >
-        <div className="grid items-end gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <h2 className="font-display text-[clamp(2.1rem,4.6vw,4.4rem)] leading-[0.95] tracking-[-0.045em] text-ink lowercase">
+        <div className="flex flex-col gap-6 sm:gap-8 lg:grid lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+          <h2 className="font-display text-[clamp(1.85rem,5vw,4.4rem)] leading-[0.95] tracking-[-0.045em] text-ink lowercase">
             Deets card is made for those looking for modernity, convenience, and
             elegance.
           </h2>
-          <div className="flex flex-col gap-8 lg:items-end">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-end lg:gap-8">
             <p className="max-w-md text-[15px] leading-relaxed text-ink-soft lg:text-right">
               Get instant access to more information about your social media and
               contact information directly from your Deets card.
@@ -57,11 +54,14 @@ export function ProductSection() {
 
       <div
         ref={scrollerRef}
-        className="liquid-x mx-auto mt-16 max-w-[1440px] cursor-grab overflow-x-auto overflow-y-hidden pb-2 active:cursor-grabbing"
+        className="liquid-x -mx-5 mt-12 cursor-grab overflow-x-auto px-5 active:cursor-grabbing sm:mt-14 md:-mx-10 md:px-10 lg:mx-auto lg:mt-16 lg:max-w-[1440px] lg:px-0"
       >
-        <div className="flex w-max gap-6">
+        <div className="flex w-max gap-5 sm:gap-6">
           {products.map((item) => (
-            <article key={item.id} className={`${productCardWidth} shrink-0`}>
+            <article
+              key={item.id}
+              className="w-[min(82vw,18rem)] shrink-0 sm:w-[min(58vw,19rem)] md:w-[min(42vw,20rem)] lg:w-[min(32vw,22rem)] xl:w-[min(28vw,24rem)]"
+            >
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
                 <img
                   src={item.imageSrc}
@@ -69,10 +69,10 @@ export function ProductSection() {
                   className="absolute inset-0 size-full object-cover"
                 />
               </div>
-              <h3 className="mt-5 font-sans text-[1.05rem] font-semibold tracking-tight text-ink">
+              <h3 className="mt-4 font-sans text-[1.05rem] font-semibold tracking-tight text-ink sm:mt-5">
                 {item.title}
               </h3>
-              <p className="mt-2 max-w-sm text-[0.95rem] leading-relaxed text-ink-soft">
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-soft">
                 {item.copy}
               </p>
             </article>

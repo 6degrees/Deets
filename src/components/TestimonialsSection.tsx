@@ -50,13 +50,13 @@ export function TestimonialsSection() {
 
       <div
         ref={scrollerRef}
-        className="liquid-x mx-auto mt-12 max-w-[1440px] cursor-grab overflow-x-auto overflow-y-hidden pb-2 active:cursor-grabbing md:mt-16"
+        className="liquid-x -mx-5 mt-10 cursor-grab overflow-x-auto px-5 active:cursor-grabbing sm:mt-12 md:-mx-10 md:mt-16 md:px-10 lg:mx-auto lg:max-w-[1440px] lg:px-0"
       >
         <div className="flex w-max gap-5 px-0 md:gap-6">
           {testimonials.map((item) => (
             <article
               key={item.id}
-              className="flex w-[min(88vw,24rem)] shrink-0 flex-col rounded-[1.75rem] bg-[#f3f3f3] p-6 md:w-[24rem] md:p-7"
+              className="flex w-[min(88vw,22rem)] shrink-0 flex-col rounded-[1.75rem] bg-[#f3f3f3] p-6 sm:w-[min(78vw,24rem)] md:p-7"
             >
               <div className="flex items-start justify-between gap-4">
                 <div

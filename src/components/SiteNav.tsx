@@ -71,14 +71,14 @@ export function SiteNav() {
         shown ? "translate-y-0" : "-translate-y-[calc(100%+1rem)]"
       }`}
     >
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto w-full max-w-5xl">
         <div
-          className={`pointer-events-auto rounded-full px-4 py-2.5 transition-[background-color,border-color,box-shadow] duration-500 md:px-5 md:py-3 ${pillClass}`}
+          className={`pointer-events-auto rounded-full px-3 py-2 transition-[background-color,border-color,box-shadow] duration-500 sm:px-4 sm:py-2.5 md:px-5 md:py-3 ${pillClass}`}
         >
-          <div className="flex items-center justify-between gap-4">
-            <Link to="/" className="flex shrink-0 items-center">
+          <div className="flex items-center justify-between gap-2 sm:gap-4">
+            <Link to="/" className="flex min-w-0 shrink items-center">
               <BrandLogo
-                className={`h-6 w-auto md:h-7 ${overHero ? "brightness-0 invert" : ""}`}
+                className={`h-5 w-auto sm:h-6 md:h-7 ${overHero ? "brightness-0 invert" : ""}`}
               />
             </Link>
 

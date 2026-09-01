@@ -68,10 +68,12 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-canvas text-ink font-sans antialiased;
+    overflow-x: hidden;
   }
 
   ::selection {

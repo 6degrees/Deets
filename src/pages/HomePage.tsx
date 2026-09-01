@@ -1,5 +1,6 @@
 import { CompaniesTeaser } from "../components/CompaniesTeaser"
 import { ContactSection } from "../components/ContactSection"
+import { FaqSection } from "../components/FaqSection"
 import { FunctionsFilm } from "../components/FunctionsFilm"
 import { Hero } from "../components/Hero"
 import { HowItWorks } from "../components/HowItWorks"
@@ -19,6 +20,7 @@ export function HomePage() {
       <FunctionsFilm />
       <PricingSection />
       <TestimonialsSection />
+      <FaqSection />
       <ContactSection />
     </>
   )
