@@ -2,31 +2,55 @@ import { CONTACT_EMAIL, STORE_URL } from "../media/higgsfield"
 import { withBase } from "../lib/base"
 
 export const navLinks = [
-  { label: "Why", to: "/#why-deets" },
+  { label: "Products", to: "/#products" },
   { label: "Designs", to: "/designs" },
   { label: "Functions", to: "/#functions" },
   { label: "Directory", to: "/directory" },
   { label: "Contact", to: "/#contact" },
 ] as const
 
-export const trustItems = [
+export const products = [
   {
-    id: "privacy",
-    title: "Privacy",
-    copy: "Your info. will be limited to those you share the card with.",
-    imageSrc: withBase("/media/trust/privacy.jpg"),
+    id: "classic",
+    title: "Classic Card",
+    copy: "Our standard NFC card — durable, customizable, and ready to share your profile.",
+    imageSrc: withBase("/media/products/classic.jpg"),
   },
   {
-    id: "convenience",
-    title: "Convenience",
-    copy: "No apps are required to share your info. with others!",
-    imageSrc: withBase("/media/trust/convenience.jpg"),
+    id: "metal",
+    title: "Metal Card",
+    copy: "Premium metal finish with embossed branding for a lasting first impression.",
+    imageSrc: withBase("/media/products/metal.jpg"),
   },
   {
-    id: "elegance",
-    title: "Elegance",
-    copy: "A size and shape that fits your needs and serves your goals.",
-    imageSrc: withBase("/media/trust/elegance.jpg"),
+    id: "matte-black",
+    title: "Matte Black",
+    copy: "A sleek matte black card built for minimal, modern professionals.",
+    imageSrc: withBase("/media/products/matte-black.jpg"),
+  },
+  {
+    id: "holographic",
+    title: "Holographic",
+    copy: "Light-catching finishes that stand out at events and on camera.",
+    imageSrc: withBase("/media/products/holographic.jpg"),
+  },
+  {
+    id: "sticker",
+    title: "NFC Sticker",
+    copy: "Stick it on your phone or laptop — tap to share without carrying a card.",
+    imageSrc: withBase("/media/products/sticker.jpg"),
+  },
+  {
+    id: "tag",
+    title: "Smart Tag",
+    copy: "A compact NFC tag for lanyards, wallets, and everyday carry.",
+    imageSrc: withBase("/media/products/tag.jpg"),
+  },
+  {
+    id: "username",
+    title: "Deets Username",
+    copy: "Your own deets.pro link — no physical card required.",
+    imageSrc: withBase("/media/products/username.jpg"),
   },
 ] as const
 
@@ -35,16 +59,19 @@ export const howItWorksSteps = [
     id: "order",
     title: "Order your card",
     copy: "Pick a design, add your details, and we ship your Deets card ready to use.",
+    imageSrc: withBase("/media/how-it-works/order.jpg"),
   },
   {
     id: "share",
     title: "Tap or scan",
     copy: "Anyone can tap with their phone or scan the QR — no app download needed.",
+    imageSrc: withBase("/media/how-it-works/tap.jpg"),
   },
   {
     id: "update",
     title: "Update anytime",
     copy: "Change your links, photo, or contact info from your account. The card stays current.",
+    imageSrc: withBase("/media/how-it-works/update.jpg"),
   },
 ] as const
 

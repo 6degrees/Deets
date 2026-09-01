@@ -17,8 +17,8 @@ export function Footer() {
           <p className="text-xs tracking-[0.16em] text-ink-soft uppercase">Product</p>
           <ul className="mt-4 space-y-2 text-sm">
             <li>
-              <Link className="hover:text-magenta" to="/#why-deets">
-                Why Deets
+              <Link className="hover:text-magenta" to="/#products">
+                Products
               </Link>
             </li>
             <li>

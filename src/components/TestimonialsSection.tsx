@@ -1,111 +1,9 @@
-import { useEffect, useRef, type RefObject } from "react"
+import { useRef } from "react"
 import { motion } from "framer-motion"
 import { testimonials } from "../data/site"
+import { useLiquidScroll } from "../hooks/useLiquidScroll"
 import { fadeUp } from "../motion/variants"
-
-function useLiquidScroll(ref: RefObject<HTMLDivElement | null>) {
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    if (reduce) return
-
-    let target = el.scrollLeft
-    let current = el.scrollLeft
-    let raf = 0
-    let dragging = false
-    let dragX = 0
-    let dragStart = 0
-
-    const maxScroll = () => el.scrollWidth - el.clientWidth
-
-    const tick = () => {
-      current += (target - current) * 0.085
-      if (Math.abs(target - current) < 0.4) current = target
-      el.scrollLeft = current
-      if (current !== target) raf = requestAnimationFrame(tick)
-      else raf = 0
-    }
-
-    const go = (next: number) => {
-      target = Math.max(0, Math.min(maxScroll(), next))
-      if (!raf) raf = requestAnimationFrame(tick)
-    }
-
-    const onWheel = (e: WheelEvent) => {
-      if (maxScroll() <= 0) return
-      const delta =
-        Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY
-      if (delta === 0) return
-      e.preventDefault()
-      go(target + delta * 0.42)
-    }
-
-    const onPointerDown = (e: PointerEvent) => {
-      if (e.pointerType === "touch") return
-      dragging = true
-      dragX = e.clientX
-      dragStart = target
-      el.setPointerCapture(e.pointerId)
-    }
-
-    const onPointerMove = (e: PointerEvent) => {
-      if (!dragging) return
-      go(dragStart - (e.clientX - dragX))
-    }
-
-    const onPointerUp = () => {
-      dragging = false
-    }
-
-    el.addEventListener("wheel", onWheel, { passive: false })
-    el.addEventListener("pointerdown", onPointerDown)
-    el.addEventListener("pointermove", onPointerMove)
-    el.addEventListener("pointerup", onPointerUp)
-    el.addEventListener("pointercancel", onPointerUp)
-
-    return () => {
-      cancelAnimationFrame(raf)
-      el.removeEventListener("wheel", onWheel)
-      el.removeEventListener("pointerdown", onPointerDown)
-      el.removeEventListener("pointermove", onPointerMove)
-      el.removeEventListener("pointerup", onPointerUp)
-      el.removeEventListener("pointercancel", onPointerUp)
-    }
-  }, [ref])
-}
-
-function ArrowButton({
-  direction,
-  onClick,
-}: {
-  direction: "prev" | "next"
-  onClick: () => void
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={direction === "prev" ? "Previous review" : "Next review"}
-      className="flex size-11 items-center justify-center rounded-full bg-ink text-white transition-opacity hover:opacity-85"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        className="size-4"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        aria-hidden
-      >
-        {direction === "prev" ? (
-          <path d="M15 18l-6-6 6-6" />
-        ) : (
-          <path d="M9 18l6-6-6-6" />
-        )}
-      </svg>
-    </button>
-  )
-}
+import { CarouselArrows } from "./CarouselArrows"
 
 export function TestimonialsSection() {
   const scrollerRef = useRef<HTMLDivElement>(null)
@@ -141,10 +39,12 @@ export function TestimonialsSection() {
               <span className="text-ink-soft">Our Clients</span> Say
             </h2>
           </div>
-          <div className="flex gap-3">
-            <ArrowButton direction="prev" onClick={() => scrollByCard("prev")} />
-            <ArrowButton direction="next" onClick={() => scrollByCard("next")} />
-          </div>
+          <CarouselArrows
+            onPrev={() => scrollByCard("prev")}
+            onNext={() => scrollByCard("next")}
+            prevLabel="Previous review"
+            nextLabel="Next review"
+          />
         </div>
       </motion.div>
 

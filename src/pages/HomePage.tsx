@@ -6,14 +6,14 @@ import { HowItWorks } from "../components/HowItWorks"
 import { PricingSection } from "../components/PricingSection"
 import { TemplateCarousel } from "../components/TemplateCarousel"
 import { TestimonialsSection } from "../components/TestimonialsSection"
-import { TrustRow } from "../components/TrustRow"
+import { ProductSection } from "../components/ProductSection"
 
 export function HomePage() {
   return (
     <>
       <Hero />
       <CompaniesTeaser />
-      <TrustRow />
+      <ProductSection />
       <HowItWorks />
       <TemplateCarousel />
       <FunctionsFilm />
